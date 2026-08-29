@@ -8,7 +8,7 @@ export function Reveal({
   as: Tag = "div",
 }: {
   children: ReactNode;
-  className?: string;
+  className?: string | undefined;
   delay?: number;
   as?: "div" | "section" | "li" | "article";
 }) {
