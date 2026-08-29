@@ -50,10 +50,13 @@ export function ToothObject({ className }: { className?: string }) {
     <div
       ref={ref}
       aria-hidden="true"
-      className={cn("pointer-events-none select-none [perspective:1100px]", className)}
+      className={cn(
+        "pointer-events-none select-none rounded-full border border-gold/30 bg-background/70 p-5 shadow-[0_24px_60px_-30px_rgba(0,0,0,0.45)] backdrop-blur-sm [perspective:1100px]",
+        className,
+      )}
     >
       <div
-        className="transition-transform duration-700 ease-out will-change-transform"
+        className="h-full w-full transition-transform duration-700 ease-out will-change-transform"
         style={{
           transform: fine
             ? `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`
@@ -78,9 +81,9 @@ export function ToothObject({ className }: { className?: string }) {
               >
                 <path
                   d={TOOTH_PATH}
-                  fill={`color-mix(in oklab, var(--champagne) ${55 + t * 45}%, var(--nude))`}
-                  stroke="color-mix(in oklab, var(--gold) 45%, transparent)"
-                  strokeWidth={isFace ? 0.6 : 0.25}
+                  fill={`color-mix(in oklab, white ${45 + t * 45}%, var(--nude))`}
+                  stroke="color-mix(in oklab, var(--gold) 85%, transparent)"
+                  strokeWidth={isFace ? 1.4 : 0.5}
                 />
               </svg>
             );
