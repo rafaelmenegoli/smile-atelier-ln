@@ -11,7 +11,10 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Reveal } from "@/components/site/Reveal";
-import { siteConfig, testimonials, whatsappLink } from "@/config/site";
+import { ToothObject } from "@/components/site/ToothObject";
+import { Gallery } from "@/components/site/Gallery";
+import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
+import { siteConfig, whatsappLink } from "@/config/site";
 
 const title = "LN Odontologia Especializada | São José do Rio Preto";
 const description =
@@ -158,15 +161,17 @@ function Home() {
                 <a
                   href={cta}
                   {...ctaProps}
-                  className="inline-flex items-center justify-center rounded-full bg-primary px-9 py-4 text-[0.75rem] uppercase tracking-[0.2em] text-primary-foreground transition-all duration-300 hover:opacity-90"
+                  className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-9 py-4 text-[0.75rem] uppercase tracking-[0.2em] text-primary-foreground transition-all duration-500 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_-18px_hsl(var(--foreground)/0.6)] motion-reduce:hover:translate-y-0"
                 >
                   Agendar sua avaliação
+                  <span className="h-px w-0 bg-gold transition-all duration-500 group-hover:w-7" />
                 </a>
                 <a
                   href="#clinica"
-                  className="inline-flex items-center justify-center rounded-full border border-border px-9 py-4 text-[0.75rem] uppercase tracking-[0.2em] text-foreground transition-all duration-300 hover:border-gold"
+                  className="group inline-flex items-center justify-center gap-3 rounded-full border border-border px-9 py-4 text-[0.75rem] uppercase tracking-[0.2em] text-foreground transition-all duration-500 hover:border-gold hover:text-gold"
                 >
                   Conheça a clínica
+                  <span className="h-px w-0 bg-gold transition-all duration-500 group-hover:w-7" />
                 </a>
               </div>
             </Reveal>
@@ -180,6 +185,7 @@ function Home() {
                 alt="Recepção da clínica LN Odontologia Especializada, com iluminação quente e acabamento em tons claros"
                 className="relative h-[26rem] w-full rounded-[1.5rem] object-cover sm:h-[34rem] lg:h-[42rem] lg:rounded-[2rem]"
               />
+              <ToothObject className="absolute -bottom-8 -left-8 h-28 w-28 sm:h-36 sm:w-36 lg:-bottom-12 lg:-left-14 lg:h-48 lg:w-48" />
             </Reveal>
           </div>
         </section>
@@ -245,9 +251,19 @@ function Home() {
 
             <ul className="mt-16 grid gap-x-14 gap-y-14 sm:grid-cols-2">
               {treatments.map((t, i) => (
-                <Reveal as="li" key={t.title} delay={i * 90} className="border-t border-border pt-8">
-                  <LineIcon>{t.icon}</LineIcon>
-                  <h3 className="mt-6 font-serif text-2xl">{t.title}</h3>
+                <Reveal
+                  as="li"
+                  key={t.title}
+                  delay={i * 90}
+                  className="group relative border-t border-border pt-8 transition-colors duration-500 hover:border-gold"
+                >
+                  <span className="absolute -top-px left-0 h-px w-0 bg-gold transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
+                  <span className="inline-block transition-transform duration-500 group-hover:-translate-y-1 motion-reduce:group-hover:translate-y-0">
+                    <LineIcon>{t.icon}</LineIcon>
+                  </span>
+                  <h3 className="mt-6 font-serif text-2xl transition-colors duration-500 group-hover:text-gold">
+                    {t.title}
+                  </h3>
                   <p className="mt-3 max-w-md text-[0.9rem] leading-[1.9] text-muted-foreground">
                     {t.text}
                   </p>
@@ -323,20 +339,7 @@ function Home() {
                 Experiências que nos inspiram
               </h2>
             </Reveal>
-            <ul className="mt-16 grid gap-10 md:grid-cols-3">
-              {testimonials.map((t, i) => (
-                <Reveal as="li" key={i} delay={i * 100} className="border-t border-border pt-8">
-                  <span className="font-serif text-4xl leading-none text-gold">”</span>
-                  <p className="mt-5 text-[0.95rem] leading-[1.9] text-muted-foreground">
-                    {t.quote}
-                  </p>
-                  <p className="mt-7 text-[0.75rem] uppercase tracking-[0.18em] text-foreground">
-                    {t.author}
-                  </p>
-                  <p className="mt-1 text-[0.75rem] text-muted-foreground">{t.detail}</p>
-                </Reveal>
-              ))}
-            </ul>
+            <TestimonialsCarousel />
           </div>
         </section>
 
@@ -349,48 +352,22 @@ function Home() {
                 Um espaço pensado nos detalhes
               </h2>
             </Reveal>
-            <div className="mt-14 grid gap-6 lg:grid-cols-3">
-              <Reveal className="lg:col-span-2">
-                <img
-                  src={gallery1}
-                  width={1200}
-                  height={900}
-                  loading="lazy"
-                  alt="Consultório odontológico com iluminação suave e acabamento em madeira clara"
-                  className="h-[20rem] w-full rounded-[1.5rem] object-cover sm:h-[28rem]"
-                />
-              </Reveal>
-              <Reveal delay={100}>
-                <img
-                  src={gallery2}
-                  width={1200}
-                  height={900}
-                  loading="lazy"
-                  alt="Corredor claro e minimalista da clínica"
-                  className="h-[20rem] w-full rounded-[1.5rem] object-cover sm:h-[28rem]"
-                />
-              </Reveal>
-              <Reveal delay={60}>
-                <img
-                  src={gallery3}
-                  width={1200}
-                  height={900}
-                  loading="lazy"
-                  alt="Detalhe da decoração da clínica com luz natural"
-                  className="h-[20rem] w-full rounded-[1.5rem] object-cover sm:h-[24rem]"
-                />
-              </Reveal>
-              <Reveal delay={120} className="lg:col-span-2">
-                <img
-                  src={aboutClinic}
-                  width={1200}
-                  height={1408}
-                  loading="lazy"
-                  alt="Ambiente de espera da clínica em tons neutros"
-                  className="h-[20rem] w-full rounded-[1.5rem] object-cover sm:h-[24rem]"
-                />
-              </Reveal>
-            </div>
+            <Gallery
+              images={[
+                {
+                  src: gallery1,
+                  alt: "Consultório odontológico com iluminação suave e acabamento em madeira clara",
+                  className: "lg:col-span-2",
+                },
+                { src: gallery2, alt: "Corredor claro e minimalista da clínica" },
+                { src: gallery3, alt: "Detalhe da decoração da clínica com luz natural" },
+                {
+                  src: aboutClinic,
+                  alt: "Ambiente de espera da clínica em tons neutros",
+                  className: "lg:col-span-2",
+                },
+              ]}
+            />
           </div>
         </section>
 
