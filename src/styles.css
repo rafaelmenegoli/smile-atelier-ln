@@ -130,3 +130,26 @@
     transition: none;
   }
 }
+
+/* Objeto 3D do dente */
+@keyframes tooth-spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.tooth-spin {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: tooth-spin 34s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tooth-spin {
+    animation: none;
+  }
+}
