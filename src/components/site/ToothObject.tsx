@@ -56,7 +56,7 @@ export function ToothObject({ className }: { className?: string }) {
       )}
     >
       <div
-        className="transition-transform duration-700 ease-out will-change-transform"
+        className="h-full w-full transition-transform duration-700 ease-out will-change-transform"
         style={{
           transform: fine
             ? `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`
