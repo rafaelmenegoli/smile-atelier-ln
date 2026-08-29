@@ -11,7 +11,6 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Reveal } from "@/components/site/Reveal";
-import { ToothObject } from "@/components/site/ToothObject";
 import { Gallery } from "@/components/site/Gallery";
 import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
 import { siteConfig, whatsappLink } from "@/config/site";
@@ -185,7 +184,6 @@ function Home() {
                 alt="Recepção da clínica LN Odontologia Especializada, com iluminação quente e acabamento em tons claros"
                 className="relative h-[26rem] w-full rounded-[1.5rem] object-cover sm:h-[34rem] lg:h-[42rem] lg:rounded-[2rem]"
               />
-              <ToothObject className="absolute -bottom-8 -left-8 h-28 w-28 sm:h-36 sm:w-36 lg:-bottom-12 lg:-left-14 lg:h-48 lg:w-48" />
             </Reveal>
           </div>
         </section>
