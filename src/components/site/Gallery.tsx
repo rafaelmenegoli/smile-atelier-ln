@@ -10,7 +10,11 @@ export function Gallery({ images }: { images: (LightboxImage & { className?: str
     <>
       <div className="mt-14 grid gap-6 lg:grid-cols-3">
         {images.map((img, i) => (
-          <Reveal key={img.alt} delay={i * 80} className={img.className}>
+          <Reveal
+            key={img.alt}
+            delay={i * 80}
+            className={cn(img.className, i % 2 === 1 && "lg:mt-12")}
+          >
             <button
               type="button"
               onClick={() => setOpen(i)}
@@ -23,9 +27,10 @@ export function Gallery({ images }: { images: (LightboxImage & { className?: str
                 loading="lazy"
                 className={cn(
                   "w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100",
-                  i === 0 || i === 3 ? "h-[20rem] sm:h-[28rem]" : "h-[20rem] sm:h-[24rem]",
+                  ["h-[20rem] sm:h-[30rem]", "h-[20rem] sm:h-[22rem]", "h-[20rem] sm:h-[26rem]", "h-[20rem] sm:h-[24rem]"][i % 4],
                 )}
               />
+
               <span className="absolute inset-0 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/15" />
               <span className="absolute bottom-5 left-5 translate-y-2 text-[0.68rem] uppercase tracking-[0.2em] text-primary-foreground opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                 Ampliar

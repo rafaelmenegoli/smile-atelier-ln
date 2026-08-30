@@ -58,40 +58,18 @@ const treatments = [
   {
     title: "Clínica Geral",
     text: "Acompanhamento contínuo, diagnóstico cuidadoso e procedimentos essenciais para manter a saúde bucal em dia.",
-    icon: (
-      <>
-        <circle cx="12" cy="12" r="8.5" />
-        <path d="M12 7.5v9M7.5 12h9" />
-      </>
-    ),
   },
   {
     title: "Estética Dental",
     text: "Procedimentos delicados que valorizam a harmonia do sorriso, respeitando as características de cada paciente.",
-    icon: (
-      <>
-        <path d="M12 4l2.2 5.8L20 12l-5.8 2.2L12 20l-2.2-5.8L4 12l5.8-2.2z" />
-      </>
-    ),
   },
   {
     title: "Reabilitação Oral",
     text: "Devolução de função e conforto por meio de planejamento individualizado e execução criteriosa.",
-    icon: (
-      <>
-        <path d="M4 15c0-4 3.6-7 8-7s8 3 8 7" />
-        <path d="M4 15h16" />
-      </>
-    ),
   },
   {
     title: "Prevenção e Saúde Bucal",
     text: "Orientação, profilaxia e acompanhamento preventivo para preservar resultados a longo prazo.",
-    icon: (
-      <>
-        <path d="M12 4l6.5 2.5v5c0 4-2.8 7-6.5 8.5-3.7-1.5-6.5-4.5-6.5-8.5v-5z" />
-      </>
-    ),
   },
 ];
 
@@ -114,23 +92,6 @@ const differentials = [
   },
 ];
 
-function LineIcon({ children }: { children: React.ReactNode }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="0.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="h-7 w-7 text-gold"
-      aria-hidden="true"
-    >
-      {children}
-    </svg>
-  );
-}
-
 function Home() {
   const cta = whatsappLink ?? "#contato";
   const ctaProps = whatsappLink
@@ -138,7 +99,7 @@ function Home() {
     : {};
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="paper min-h-screen bg-background">
       <Header />
 
       <main>
@@ -189,8 +150,14 @@ function Home() {
         </section>
 
         {/* SOBRE */}
-        <section id="clinica" className="bg-sand/60 py-20 md:py-32">
-          <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 md:px-10 lg:grid-cols-2 lg:gap-24">
+        <section id="clinica" className="relative overflow-hidden bg-sand/60 py-20 md:py-32">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-10 top-1/2 hidden -translate-y-1/2 select-none font-serif text-[26rem] leading-none text-nude/25 lg:block"
+          >
+            LN
+          </span>
+          <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 md:px-10 lg:grid-cols-2 lg:gap-24">
             <Reveal className="order-2 lg:order-1">
               <img
                 src={aboutClinic}
@@ -202,7 +169,7 @@ function Home() {
               />
             </Reveal>
             <Reveal delay={100} className="order-1 lg:order-2">
-              <p className="eyebrow">A Clínica</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">01</span>A Clínica</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Cuidar do seu sorriso
                 <br />é cuidar de você.
@@ -238,7 +205,7 @@ function Home() {
         <section id="tratamentos" className="py-20 md:py-32">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <Reveal className="max-w-2xl">
-              <p className="eyebrow">Tratamentos</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">02</span>Tratamentos</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Nossos tratamentos
               </h2>
@@ -256,8 +223,8 @@ function Home() {
                   className="group relative border-t border-border pt-8 transition-colors duration-500 hover:border-gold"
                 >
                   <span className="absolute -top-px left-0 h-px w-0 bg-gold transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
-                  <span className="inline-block transition-transform duration-500 group-hover:-translate-y-1 motion-reduce:group-hover:translate-y-0">
-                    <LineIcon>{t.icon}</LineIcon>
+                  <span className="block font-serif text-[2.2rem] italic leading-none text-gold/70 transition-all duration-500 group-hover:text-gold">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="mt-6 font-serif text-2xl transition-colors duration-500 group-hover:text-gold">
                     {t.title}
@@ -275,7 +242,7 @@ function Home() {
         <section className="bg-primary py-20 text-primary-foreground md:py-32">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <Reveal className="max-w-2xl">
-              <p className="eyebrow text-primary-foreground/60">Diferenciais</p>
+              <p className="eyebrow text-primary-foreground/60"><span className="section-index mr-3 align-middle">03</span>Diferenciais</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Por que escolher a LN?
               </h2>
@@ -310,7 +277,7 @@ function Home() {
               />
             </Reveal>
             <Reveal delay={100}>
-              <p className="eyebrow">Equipe</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">04</span>Equipe</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Dra. Letícia Nunes
               </h2>
@@ -332,7 +299,7 @@ function Home() {
         <section id="depoimentos" className="bg-sand/60 py-20 md:py-32">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <Reveal className="max-w-2xl">
-              <p className="eyebrow">Depoimentos</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">05</span>Depoimentos</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Experiências que nos inspiram
               </h2>
@@ -345,7 +312,7 @@ function Home() {
         <section id="galeria" className="py-20 md:py-32">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <Reveal className="max-w-2xl">
-              <p className="eyebrow">Galeria</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">06</span>Galeria</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Um espaço pensado nos detalhes
               </h2>
@@ -373,7 +340,7 @@ function Home() {
         <section id="localizacao" className="bg-sand/60 py-20 md:py-32">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-10 lg:grid-cols-[0.8fr_1fr] lg:gap-20">
             <Reveal>
-              <p className="eyebrow">Localização</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">07</span>Localização</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Venha conhecer a LN
               </h2>
@@ -425,7 +392,7 @@ function Home() {
         <section id="contato" className="py-24 md:py-36">
           <div className="mx-auto max-w-4xl px-5 text-center md:px-10">
             <Reveal>
-              <p className="eyebrow">Contato</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">08</span>Contato</p>
               <h2 className="mt-6 font-serif text-[2.3rem] leading-[1.12] sm:text-[3.4rem]">
                 Seu sorriso começa
                 <br />
