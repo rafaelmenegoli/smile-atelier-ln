@@ -138,7 +138,7 @@ function Home() {
     : {};
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="paper min-h-screen bg-background">
       <Header />
 
       <main>
@@ -202,7 +202,7 @@ function Home() {
               />
             </Reveal>
             <Reveal delay={100} className="order-1 lg:order-2">
-              <p className="eyebrow">A Clínica</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">01</span>A Clínica</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Cuidar do seu sorriso
                 <br />é cuidar de você.
@@ -238,7 +238,7 @@ function Home() {
         <section id="tratamentos" className="py-20 md:py-32">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <Reveal className="max-w-2xl">
-              <p className="eyebrow">Tratamentos</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">02</span>Tratamentos</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Nossos tratamentos
               </h2>
@@ -275,7 +275,7 @@ function Home() {
         <section className="bg-primary py-20 text-primary-foreground md:py-32">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <Reveal className="max-w-2xl">
-              <p className="eyebrow text-primary-foreground/60">Diferenciais</p>
+              <p className="eyebrow text-primary-foreground/60"><span className="section-index mr-3 align-middle">03</span>Diferenciais</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Por que escolher a LN?
               </h2>
@@ -310,7 +310,7 @@ function Home() {
               />
             </Reveal>
             <Reveal delay={100}>
-              <p className="eyebrow">Equipe</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">04</span>Equipe</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Dra. Letícia Nunes
               </h2>
@@ -332,7 +332,7 @@ function Home() {
         <section id="depoimentos" className="bg-sand/60 py-20 md:py-32">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <Reveal className="max-w-2xl">
-              <p className="eyebrow">Depoimentos</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">05</span>Depoimentos</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Experiências que nos inspiram
               </h2>
@@ -345,7 +345,7 @@ function Home() {
         <section id="galeria" className="py-20 md:py-32">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
             <Reveal className="max-w-2xl">
-              <p className="eyebrow">Galeria</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">06</span>Galeria</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Um espaço pensado nos detalhes
               </h2>
@@ -373,7 +373,7 @@ function Home() {
         <section id="localizacao" className="bg-sand/60 py-20 md:py-32">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-10 lg:grid-cols-[0.8fr_1fr] lg:gap-20">
             <Reveal>
-              <p className="eyebrow">Localização</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">07</span>Localização</p>
               <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
                 Venha conhecer a LN
               </h2>
@@ -425,7 +425,7 @@ function Home() {
         <section id="contato" className="py-24 md:py-36">
           <div className="mx-auto max-w-4xl px-5 text-center md:px-10">
             <Reveal>
-              <p className="eyebrow">Contato</p>
+              <p className="eyebrow"><span className="section-index mr-3 align-middle">08</span>Contato</p>
               <h2 className="mt-6 font-serif text-[2.3rem] leading-[1.12] sm:text-[3.4rem]">
                 Seu sorriso começa
                 <br />
