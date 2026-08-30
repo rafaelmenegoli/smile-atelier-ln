@@ -58,40 +58,18 @@ const treatments = [
   {
     title: "Clínica Geral",
     text: "Acompanhamento contínuo, diagnóstico cuidadoso e procedimentos essenciais para manter a saúde bucal em dia.",
-    icon: (
-      <>
-        <circle cx="12" cy="12" r="8.5" />
-        <path d="M12 7.5v9M7.5 12h9" />
-      </>
-    ),
   },
   {
     title: "Estética Dental",
     text: "Procedimentos delicados que valorizam a harmonia do sorriso, respeitando as características de cada paciente.",
-    icon: (
-      <>
-        <path d="M12 4l2.2 5.8L20 12l-5.8 2.2L12 20l-2.2-5.8L4 12l5.8-2.2z" />
-      </>
-    ),
   },
   {
     title: "Reabilitação Oral",
     text: "Devolução de função e conforto por meio de planejamento individualizado e execução criteriosa.",
-    icon: (
-      <>
-        <path d="M4 15c0-4 3.6-7 8-7s8 3 8 7" />
-        <path d="M4 15h16" />
-      </>
-    ),
   },
   {
     title: "Prevenção e Saúde Bucal",
     text: "Orientação, profilaxia e acompanhamento preventivo para preservar resultados a longo prazo.",
-    icon: (
-      <>
-        <path d="M12 4l6.5 2.5v5c0 4-2.8 7-6.5 8.5-3.7-1.5-6.5-4.5-6.5-8.5v-5z" />
-      </>
-    ),
   },
 ];
 
@@ -113,23 +91,6 @@ const differentials = [
     text: "Compromisso com resultados, saúde e bem-estar.",
   },
 ];
-
-function LineIcon({ children }: { children: React.ReactNode }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="0.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="h-7 w-7 text-gold"
-      aria-hidden="true"
-    >
-      {children}
-    </svg>
-  );
-}
 
 function Home() {
   const cta = whatsappLink ?? "#contato";
@@ -256,8 +217,8 @@ function Home() {
                   className="group relative border-t border-border pt-8 transition-colors duration-500 hover:border-gold"
                 >
                   <span className="absolute -top-px left-0 h-px w-0 bg-gold transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
-                  <span className="inline-block transition-transform duration-500 group-hover:-translate-y-1 motion-reduce:group-hover:translate-y-0">
-                    <LineIcon>{t.icon}</LineIcon>
+                  <span className="block font-serif text-[2.2rem] italic leading-none text-gold/70 transition-all duration-500 group-hover:text-gold">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="mt-6 font-serif text-2xl transition-colors duration-500 group-hover:text-gold">
                     {t.title}
