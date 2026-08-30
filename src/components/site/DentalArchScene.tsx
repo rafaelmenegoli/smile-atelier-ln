@@ -13,8 +13,8 @@ type ToothSpec = {
 function useArch(): ToothSpec[] {
   return useMemo(() => {
     const count = 14;
-    const rx = 2.15;
-    const rz = 2.75;
+    const rx = 1.72;
+    const rz = 2.15;
     const specs: ToothSpec[] = [];
     for (let i = 0; i < count; i++) {
       // ângulo de -100° a 100° na frente da arcada
@@ -24,9 +24,9 @@ function useArch(): ToothSpec[] {
       const z = -Math.cos(angle) * rz;
       // incisivos frontais maiores e mais chatos, molares atrás mais largos
       const front = 1 - Math.abs(angle) / (Math.PI * 0.62);
-      const w = THREE.MathUtils.lerp(0.46, 0.3, front);
-      const h = THREE.MathUtils.lerp(0.42, 0.6, front);
-      const d = THREE.MathUtils.lerp(0.44, 0.24, front);
+      const w = THREE.MathUtils.lerp(0.52, 0.38, front);
+      const h = THREE.MathUtils.lerp(0.5, 0.68, front);
+      const d = THREE.MathUtils.lerp(0.5, 0.32, front);
       specs.push({
         position: [x, Math.sin(front * Math.PI * 0.5) * 0.06, z],
         rotationY: angle,
@@ -54,11 +54,6 @@ function Tooth({ spec }: { spec: ToothSpec }) {
           ior={1.5}
         />
       </RoundedBox>
-      {/* raiz discreta */}
-      <mesh position={[0, -spec.scale[1] * 0.72, 0]} scale={[spec.scale[0] * 0.55, spec.scale[1] * 0.9, spec.scale[2] * 0.55]}>
-        <coneGeometry args={[0.5, 1, 12]} />
-        <meshStandardMaterial color="#efe3d2" roughness={0.7} />
-      </mesh>
     </group>
   );
 }
