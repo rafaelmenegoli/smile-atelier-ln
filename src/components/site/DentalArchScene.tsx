@@ -12,9 +12,9 @@ type ToothSpec = {
 /** Distribui os dentes ao longo de um arco (formato de arcada superior). */
 function useArch(): ToothSpec[] {
   return useMemo(() => {
-    const count = 14;
-    const rx = 1.72;
-    const rz = 2.15;
+    const count = 16;
+    const rx = 1.65;
+    const rz = 2.05;
     const specs: ToothSpec[] = [];
     for (let i = 0; i < count; i++) {
       // ângulo de -100° a 100° na frente da arcada
@@ -24,7 +24,7 @@ function useArch(): ToothSpec[] {
       const z = -Math.cos(angle) * rz;
       // incisivos frontais maiores e mais chatos, molares atrás mais largos
       const front = 1 - Math.abs(angle) / (Math.PI * 0.62);
-      const w = THREE.MathUtils.lerp(0.52, 0.38, front);
+      const w = THREE.MathUtils.lerp(0.5, 0.36, front);
       const h = THREE.MathUtils.lerp(0.5, 0.68, front);
       const d = THREE.MathUtils.lerp(0.5, 0.32, front);
       specs.push({
@@ -96,7 +96,7 @@ export default function DentalArchScene() {
       <directionalLight position={[-5, 2, -3]} intensity={0.5} color="#e3c79a" />
       <Suspense fallback={null}>
         <Arch />
-        <ContactShadows position={[0, -1.5, 0]} opacity={0.28} scale={12} blur={3} far={4} color="#7a6650" />
+        <ContactShadows position={[0, -1.5, 0]} opacity={0.16} scale={12} blur={5} far={5} color="#7a6650" />
         <Environment>
           <Lightformer intensity={2.2} position={[0, 5, 1]} scale={[10, 10, 1]} color="#fffaf2" />
           <Lightformer intensity={1.1} color="#e6cda3" position={[-5, 1, -1]} rotation-y={Math.PI / 2} scale={[16, 2, 1]} />
