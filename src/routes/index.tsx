@@ -150,8 +150,14 @@ function Home() {
         </section>
 
         {/* SOBRE */}
-        <section id="clinica" className="bg-sand/60 py-20 md:py-32">
-          <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 md:px-10 lg:grid-cols-2 lg:gap-24">
+        <section id="clinica" className="relative overflow-hidden bg-sand/60 py-20 md:py-32">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-10 top-1/2 hidden -translate-y-1/2 select-none font-serif text-[26rem] leading-none text-nude/25 lg:block"
+          >
+            LN
+          </span>
+          <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 md:px-10 lg:grid-cols-2 lg:gap-24">
             <Reveal className="order-2 lg:order-1">
               <img
                 src={aboutClinic}
