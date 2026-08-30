@@ -12,6 +12,7 @@ import { Footer } from "@/components/site/Footer";
 import { WhatsAppButton } from "@/components/site/WhatsAppButton";
 import { Reveal } from "@/components/site/Reveal";
 import { Gallery } from "@/components/site/Gallery";
+import { DentalArch } from "@/components/site/DentalArch";
 import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
 import { siteConfig, whatsappLink } from "@/config/site";
 
@@ -197,6 +198,28 @@ function Home() {
                 Conheça nossa clínica
                 <span className="h-px w-10 bg-gold" />
               </a>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ARCADA 3D */}
+        <section className="relative overflow-hidden py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-5 md:px-10">
+            <Reveal className="mx-auto max-w-xl text-center">
+              <p className="eyebrow">Detalhe por detalhe</p>
+              <h2 className="mt-6 font-serif text-[2rem] leading-[1.15] sm:text-[2.6rem]">
+                Cada dente tem a sua
+                <em className="italic text-gold"> história</em>.
+              </h2>
+            </Reveal>
+            <Reveal delay={120}>
+              <DentalArch className="mx-auto mt-4 h-[22rem] w-full max-w-3xl sm:h-[30rem]" />
+            </Reveal>
+            <Reveal delay={200} className="mx-auto max-w-lg text-center">
+              <p className="text-[0.9rem] leading-[1.9] text-muted-foreground">
+                Estudamos a arcada como um conjunto: função, oclusão e estética caminham juntas em
+                cada planejamento.
+              </p>
             </Reveal>
           </div>
         </section>
