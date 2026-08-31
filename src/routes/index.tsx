@@ -262,27 +262,63 @@ function Home() {
         </section>
 
         {/* DIFERENCIAIS */}
-        <section className="bg-primary py-20 text-primary-foreground md:py-32">
-          <div className="mx-auto max-w-7xl px-5 md:px-10">
-            <Reveal className="max-w-2xl">
-              <p className="eyebrow text-primary-foreground/60"><span className="section-index mr-3 align-middle">03</span>Diferenciais</p>
-              <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
-                Por que escolher a LN?
-              </h2>
-            </Reveal>
-            <ul className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-              {differentials.map((d, i) => (
-                <Reveal as="li" key={d.title} delay={i * 90}>
-                  <span className="font-serif text-lg text-gold">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-4 font-serif text-2xl text-primary-foreground">{d.title}</h3>
-                  <p className="mt-3 text-[0.9rem] leading-[1.9] text-primary-foreground/70">
-                    {d.text}
+        <section className="relative overflow-hidden bg-sand/60 py-20 md:py-32">
+          <div className="paper pointer-events-none absolute inset-0" aria-hidden="true" />
+          <div className="relative mx-auto max-w-7xl px-5 md:px-10">
+            <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-8">
+              {/* Left Column: Statement */}
+              <Reveal className="lg:col-span-5">
+                <div className="space-y-6">
+                  <p className="eyebrow">
+                    <span className="section-index mr-3 align-middle">03</span>Diferenciais
                   </p>
-                </Reveal>
-              ))}
-            </ul>
+                  <h2 className="font-serif text-[2.4rem] leading-[1.08] italic text-foreground sm:text-5xl lg:text-[3.6rem]">
+                    Onde a ciência encontra a{" "}
+                    <span className="block not-italic">arte do sorriso.</span>
+                  </h2>
+                </div>
+                <div className="mt-8 h-px w-24 bg-gold/40" />
+                <p className="mt-8 max-w-md text-[0.95rem] leading-[1.9] text-muted-foreground">
+                  Na LN Odontologia, transcendemos o tratamento convencional. Combinamos precisão
+                  tecnológica com um olhar cuidadoso sobre a estética facial, criando resultados que
+                  são, acima de tudo, autênticos.
+                </p>
+                <a
+                  href="#clinica"
+                  className="group mt-8 inline-flex items-center gap-4 text-[0.75rem] uppercase tracking-[0.2em] text-foreground transition-colors hover:text-gold"
+                >
+                  Conheça nossa filosofia
+                  <span className="h-px w-8 bg-gold transition-all duration-500 group-hover:w-12" />
+                </a>
+              </Reveal>
+
+              {/* Right Column: Pillars */}
+              <ul className="mt-2 grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-2 lg:col-span-7 lg:mt-0">
+                {differentials.map((d, i) => (
+                  <Reveal
+                    as="li"
+                    key={d.title}
+                    delay={i * 100}
+                    className={`group relative ${i % 2 === 0 ? "md:mt-12" : ""}`}
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="absolute -top-8 -left-5 font-serif text-[5rem] font-light italic leading-none text-gold/10 transition-colors duration-500 group-hover:text-gold/20 sm:text-[6rem]"
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="relative font-serif text-2xl tracking-tight text-foreground transition-colors duration-500 group-hover:text-gold">
+                      {d.title}
+                    </h3>
+                    <p className="mt-4 border-l border-border pl-6 text-[0.9rem] leading-[1.9] text-muted-foreground">
+                      {d.text}
+                    </p>
+                  </Reveal>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-24 h-px w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
           </div>
         </section>
 
