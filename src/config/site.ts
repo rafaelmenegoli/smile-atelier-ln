@@ -53,24 +53,24 @@ export const navLinks = [
   { label: "Contato", href: "#contato" },
 ] as const;
 
-/** Depoimentos demonstrativos — substitua pelos textos reais quando disponíveis. */
+/** Depoimentos reais de pacientes da LN Odontologia Especializada. */
 export const testimonials = [
   {
     quote:
-      "Depoimento demonstrativo. Substitua este texto pela experiência real de um paciente da clínica.",
-    author: "Paciente",
-    detail: "Nome a definir",
+      "Estou muito satisfeita com a experiência na clínica. A Dra Letícia e os doutores são ótimos, sempre atenciosos e profissionais. A clínica é organizada e o ambiente é acolhedor, tudo limpinho, o que torna a visita muito mais agradável. Recomendo a todos que buscam um atendimento de qualidade.",
+    author: "Isa Caires",
+    detail: "Avaliação Google · 5 estrelas",
   },
   {
     quote:
-      "Depoimento demonstrativo. Este espaço está preparado para receber avaliações verdadeiras.",
-    author: "Paciente",
-    detail: "Nome a definir",
+      "Local super aconchegante com excelentes profissionais. Superou minhas expectativas. Os doutores são pessoas incríveis e bem atenciosos. Fiquei extremamente satisfeito com o atendimento. Parabéns pelo trabalho, Dra Leticia e equipe!",
+    author: "Eduardo Correia",
+    detail: "Avaliação Google · 5 estrelas",
   },
   {
     quote:
-      "Depoimento demonstrativo. Edite em src/config/site.ts para publicar relatos autênticos.",
-    author: "Paciente",
-    detail: "Nome a definir",
+      "Atendimento maravilhoso, da recepção ao atendimento da doutora e sua auxiliar. Ambiente limpo e aconchegante. Doutora transmite confiança e tranquilidade ao paciente. Agradeço pelo carinho que meu filho foi tratado.",
+    author: "Lau Silva",
+    detail: "Avaliação Google · 5 estrelas",
   },
 ] as const;

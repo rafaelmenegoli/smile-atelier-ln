@@ -72,7 +72,7 @@ export function TestimonialsCarousel() {
       </div>
 
       <p className="mt-8 text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground/70">
-        Textos demonstrativos — serão substituídos por avaliações reais de pacientes.
+        Avaliações reais de pacientes no Google
       </p>
     </div>
   );
