@@ -1,16 +1,18 @@
-import { lazy, Suspense } from "react";
-import { ClientOnly } from "@tanstack/react-router";
-
-const Scene = lazy(() => import("./DentalArchScene"));
+import dentalArch from "@/assets/dental-arch.jpg";
 
 export function DentalArch({ className }: { className?: string | undefined }) {
   return (
     <div className={className}>
-      <ClientOnly fallback={null}>
-        <Suspense fallback={null}>
-          <Scene />
-        </Suspense>
-      </ClientOnly>
+      <div className="relative h-full w-full overflow-hidden rounded-sm">
+        <img
+          src={dentalArch}
+          alt="Ilustração clínica de uma arcada dentária em tons nude e champagne"
+          loading="lazy"
+          width={1280}
+          height={1024}
+          className="h-full w-full object-contain"
+        />
+      </div>
     </div>
   );
 }
