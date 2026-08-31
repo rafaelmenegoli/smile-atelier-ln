@@ -76,20 +76,20 @@ const treatments = [
 
 const differentials = [
   {
-    title: "Atendimento humanizado",
-    text: "Cada paciente é tratado de forma individual e acolhedora.",
+    title: "Corpo clínico especializado",
+    text: "Atendimento conduzido por profissionais com formação sólida e visão integrada da saúde bucal, para decisões seguras e bem fundamentadas.",
   },
   {
-    title: "Estrutura moderna",
-    text: "Um ambiente planejado para proporcionar conforto e segurança.",
+    title: "Fluxo digital e preciso",
+    text: "Planejamento com escaneamento intraoral e recursos tecnológicos que tornam o diagnóstico mais previsível e a experiência mais confortável.",
   },
   {
-    title: "Experiência e especialização",
-    text: "Cuidado odontológico baseado em conhecimento e atualização profissional.",
+    title: "Atendimento boutique",
+    text: "Um ambiente pensado para acolher: tempo dedicado, escuta atenta e um cuidado que acompanha cada paciente do início ao pós-tratamento.",
   },
   {
-    title: "Seu sorriso em boas mãos",
-    text: "Compromisso com resultados, saúde e bem-estar.",
+    title: "Biossegurança premium",
+    text: "Protocolos rigorosos de esterilização, organização e proteção para que você se sinta seguro em cada visita.",
   },
 ];
 
