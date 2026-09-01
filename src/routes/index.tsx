@@ -1,51 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-import heroClinic from "@/assets/hero-clinic.jpg";
-import aboutClinic from "@/assets/about-clinic.jpg";
-import teamDentist from "@/assets/team-dentist.jpg";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-
-import { Header } from "@/components/site/Header";
-import { Footer } from "@/components/site/Footer";
-import { WhatsAppButton } from "@/components/site/WhatsAppButton";
-import { Reveal } from "@/components/site/Reveal";
-import { Gallery } from "@/components/site/Gallery";
-import { DentalArch } from "@/components/site/DentalArch";
-import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
-import { siteConfig, whatsappLink } from "@/config/site";
-
-const title = "LN Odontologia Especializada | São José do Rio Preto";
-const description =
-  "Clínica odontológica em São José do Rio Preto – SP. Atendimento humanizado, estrutura moderna e cuidado individualizado para o seu sorriso.";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Dentist",
-          name: siteConfig.name,
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: siteConfig.address.street,
-            addressLocality: "São José do Rio Preto",
-            addressRegion: "SP",
-            postalCode: siteConfig.address.zip,
-            addressCountry: "BR",
           },
           openingHours: "Mo-Fr 08:00-18:00",
         }),
@@ -54,7 +6,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
-
 const treatments = [
   {
     title: "Clínica Geral",
@@ -73,7 +24,6 @@ const treatments = [
     text: "Orientação, profilaxia e acompanhamento preventivo para preservar resultados a longo prazo.",
   },
 ];
-
 const differentials = [
   {
     title: "Corpo clínico especializado",
@@ -92,17 +42,14 @@ const differentials = [
     text: "Protocolos rigorosos de esterilização, organização e proteção para que você se sinta seguro em cada visita.",
   },
 ];
-
 function Home() {
   const cta = whatsappLink ?? "#contato";
   const ctaProps = whatsappLink
     ? { target: "_blank", rel: "noopener noreferrer" as const }
     : {};
-
   return (
     <div className="paper min-h-screen bg-background">
       <Header />
-
       <main>
         {/* HERO */}
         <section id="inicio" className="relative pt-28 md:pt-32">
@@ -136,7 +83,6 @@ function Home() {
                 </a>
               </div>
             </Reveal>
-
             <Reveal delay={120} className="relative">
               <div className="absolute -left-4 -top-4 hidden h-full w-full rounded-[2rem] border border-gold/30 lg:block" />
               <img
@@ -149,7 +95,6 @@ function Home() {
             </Reveal>
           </div>
         </section>
-
         {/* SOBRE */}
         <section id="clinica" className="relative overflow-hidden bg-sand/60 py-20 md:py-32">
           <span
@@ -201,7 +146,6 @@ function Home() {
             </Reveal>
           </div>
         </section>
-
         {/* ARCADA 3D */}
         <section className="relative overflow-hidden py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-5 md:px-10">
@@ -214,305 +158,9 @@ function Home() {
             </Reveal>
             <Reveal delay={120}>
               <DentalArch className="mx-auto mt-4 h-[22rem] w-full max-w-3xl sm:h-[30rem]" />
+              <DentalArch className="mx-auto mt-8 h-[28rem] w-full max-w-4xl sm:h-[36rem]" />
             </Reveal>
             <Reveal delay={200} className="mx-auto max-w-lg text-center">
               <p className="text-[0.9rem] leading-[1.9] text-muted-foreground">
-                Estudamos a arcada como um conjunto: função, oclusão e estética caminham juntas em
-                cada planejamento.
-              </p>
-            </Reveal>
-          </div>
-        </section>
 
-        {/* TRATAMENTOS */}
-        <section id="tratamentos" className="py-20 md:py-32">
-          <div className="mx-auto max-w-7xl px-5 md:px-10">
-            <Reveal className="max-w-2xl">
-              <p className="eyebrow"><span className="section-index mr-3 align-middle">02</span>Tratamentos</p>
-              <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
-                Nossos tratamentos
-              </h2>
-              <p className="mt-6 text-[0.95rem] leading-[1.9] text-muted-foreground">
-                Um cuidado completo, conduzido com critério clínico e planejamento individual.
-              </p>
-            </Reveal>
-
-            <ul className="mt-16 grid gap-x-14 gap-y-14 sm:grid-cols-2">
-              {treatments.map((t, i) => (
-                <Reveal
-                  as="li"
-                  key={t.title}
-                  delay={i * 90}
-                  className="group relative border-t border-border pt-8 transition-colors duration-500 hover:border-gold"
-                >
-                  <span className="absolute -top-px left-0 h-px w-0 bg-gold transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
-                  <span className="block font-serif text-[2.2rem] italic leading-none text-gold/70 transition-all duration-500 group-hover:text-gold">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-6 font-serif text-2xl transition-colors duration-500 group-hover:text-gold">
-                    {t.title}
-                  </h3>
-                  <p className="mt-3 max-w-md text-[0.9rem] leading-[1.9] text-muted-foreground">
-                    {t.text}
-                  </p>
-                </Reveal>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* DIFERENCIAIS */}
-        <section className="relative overflow-hidden bg-sand/60 py-20 md:py-32">
-          <div className="paper pointer-events-none absolute inset-0" aria-hidden="true" />
-          <div className="relative mx-auto max-w-7xl px-5 md:px-10">
-            <div className="grid grid-cols-1 items-start gap-16 lg:grid-cols-12 lg:gap-8">
-              {/* Left Column: Statement */}
-              <Reveal className="lg:col-span-5">
-                <div className="space-y-6">
-                  <p className="eyebrow">
-                    <span className="section-index mr-3 align-middle">03</span>Diferenciais
-                  </p>
-                  <h2 className="font-serif text-[2.4rem] leading-[1.08] italic text-foreground sm:text-5xl lg:text-[3.6rem]">
-                    Onde a ciência encontra
-                    <span className="block not-italic">a arte do sorriso.</span>
-                  </h2>
-
-                </div>
-                <div className="mt-8 h-px w-24 bg-gold/40" />
-                <p className="mt-8 max-w-md text-[0.95rem] leading-[1.9] text-muted-foreground">
-                  Na LN Odontologia, transcendemos o tratamento convencional. Combinamos precisão
-                  tecnológica com um olhar cuidadoso sobre a estética facial, criando resultados que
-                  são, acima de tudo, autênticos.
-                </p>
-                <a
-                  href="#clinica"
-                  className="group mt-8 inline-flex items-center gap-4 text-[0.75rem] uppercase tracking-[0.2em] text-foreground transition-colors hover:text-gold"
-                >
-                  Conheça nossa filosofia
-                  <span className="h-px w-8 bg-gold transition-all duration-500 group-hover:w-12" />
-                </a>
-              </Reveal>
-
-              {/* Right Column: Pillars */}
-              <ul className="grid grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2 lg:col-span-7">
-                {differentials.map((d, i) => (
-                  <Reveal
-                    as="li"
-                    key={d.title}
-                    delay={i * 100}
-                    className="group border-t border-border pt-7 transition-colors duration-500 hover:border-gold"
-                  >
-                    <span className="block font-serif text-[1.6rem] italic leading-none text-gold/70 transition-colors duration-500 group-hover:text-gold">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="mt-4 font-serif text-2xl tracking-tight text-foreground transition-colors duration-500 group-hover:text-gold">
-                      {d.title}
-                    </h3>
-                    <p className="mt-3 text-[0.9rem] leading-[1.9] text-muted-foreground">
-                      {d.text}
-                    </p>
-                  </Reveal>
-                ))}
-              </ul>
-
-            </div>
-
-            <div className="mt-24 h-px w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
-          </div>
-        </section>
-
-        {/* EQUIPE */}
-        <section id="equipe" className="py-20 md:py-32">
-          <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 md:px-10 lg:grid-cols-[0.85fr_1fr] lg:gap-24">
-            <Reveal>
-              <img
-                src={teamDentist}
-                width={1008}
-                height={1264}
-                loading="lazy"
-                alt="Retrato profissional da Dra. Letícia Nunes, cirurgiã-dentista"
-                className="h-[26rem] w-full rounded-[1.5rem] object-cover sm:h-[34rem]"
-              />
-            </Reveal>
-            <Reveal delay={100}>
-              <p className="eyebrow"><span className="section-index mr-3 align-middle">04</span>Equipe</p>
-              <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
-                Dra. Letícia Nunes
-              </h2>
-              <p className="mt-4 text-[0.8rem] uppercase tracking-[0.18em] text-muted-foreground">
-                Cirurgiã-Dentista | CRO 109.161
-              </p>
-              <div className="mt-8 max-w-lg">
-                <span className="block h-px w-16 bg-gold" />
-                <p className="mt-8 font-serif text-2xl leading-[1.6] text-foreground sm:text-[1.75rem]">
-                  “Com dedicação, ética e atenção aos detalhes, a Dra. Letícia busca oferecer uma
-                  experiência odontológica acolhedora, segura e personalizada para cada paciente.”
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* DEPOIMENTOS */}
-        <section id="depoimentos" className="bg-sand/60 py-20 md:py-32">
-          <div className="mx-auto max-w-7xl px-5 md:px-10">
-            <Reveal className="max-w-2xl">
-              <p className="eyebrow"><span className="section-index mr-3 align-middle">05</span>Depoimentos</p>
-              <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
-                Experiências que nos inspiram
-              </h2>
-            </Reveal>
-            <TestimonialsCarousel />
-          </div>
-        </section>
-
-        {/* GALERIA */}
-        <section id="galeria" className="py-20 md:py-32">
-          <div className="mx-auto max-w-7xl px-5 md:px-10">
-            <Reveal className="max-w-2xl">
-              <p className="eyebrow"><span className="section-index mr-3 align-middle">06</span>Galeria</p>
-              <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
-                Um espaço pensado nos detalhes
-              </h2>
-            </Reveal>
-            <Gallery
-              images={[
-                {
-                  src: gallery1,
-                  alt: "Consultório odontológico com iluminação suave e acabamento em madeira clara",
-                  className: "lg:col-span-2",
-                },
-                { src: gallery2, alt: "Corredor claro e minimalista da clínica" },
-                { src: gallery3, alt: "Detalhe da decoração da clínica com luz natural" },
-                {
-                  src: aboutClinic,
-                  alt: "Ambiente de espera da clínica em tons neutros",
-                  className: "lg:col-span-2",
-                },
-              ]}
-            />
-          </div>
-        </section>
-
-        {/* LOCALIZAÇÃO */}
-        <section id="localizacao" className="bg-sand/60 py-20 md:py-32">
-          <div className="mx-auto grid max-w-7xl gap-12 px-5 md:px-10 lg:grid-cols-[0.8fr_1fr] lg:gap-20">
-            <Reveal>
-              <p className="eyebrow"><span className="section-index mr-3 align-middle">07</span>Localização</p>
-              <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
-                Venha conhecer a LN
-              </h2>
-              <div className="mt-10 space-y-8 text-[0.95rem] leading-[1.9] text-muted-foreground">
-                <div>
-                  <h3 className="eyebrow font-sans">Endereço</h3>
-                  <p className="mt-3">
-                    {siteConfig.address.street}
-                    <br />
-                    {siteConfig.address.district}
-                    <br />
-                    {siteConfig.address.city}
-                    <br />
-                    {siteConfig.address.zip}
-                  </p>
-                </div>
-                <div>
-                  <h3 className="eyebrow font-sans">Horário</h3>
-                  <p className="mt-3">
-                    {siteConfig.hours.days}
-                    <br />
-                    {siteConfig.hours.time}
-                  </p>
-                </div>
-                <a
-                  href={siteConfig.mapsLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 text-[0.75rem] uppercase tracking-[0.2em] text-foreground transition-colors hover:text-gold"
-                >
-                  Ver no mapa
-                  <span className="h-px w-10 bg-gold" />
-                </a>
-              </div>
-            </Reveal>
-            <Reveal delay={100}>
-              <iframe
-                title="Mapa da localização da LN Odontologia Especializada"
-                src={siteConfig.mapsEmbedUrl}
-                loading="lazy"
-                className="h-[22rem] w-full rounded-[1.5rem] border border-border sm:h-[30rem]"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </Reveal>
-          </div>
-        </section>
-
-        {/* CONTATO */}
-        <section id="contato" className="py-24 md:py-36">
-          <div className="mx-auto max-w-4xl px-5 text-center md:px-10">
-            <Reveal>
-              <p className="eyebrow"><span className="section-index mr-3 align-middle">08</span>Contato</p>
-              <h2 className="mt-6 font-serif text-[2.3rem] leading-[1.12] sm:text-[3.4rem]">
-                Seu sorriso começa
-                <br />
-                com uma conversa.
-              </h2>
-              <p className="mx-auto mt-7 max-w-xl text-[0.95rem] leading-[1.9] text-muted-foreground">
-                Conte para nós o que você deseja para o seu sorriso. Vamos conversar com calma e
-                encontrar o melhor caminho, no seu tempo.
-              </p>
-
-              {whatsappLink ? (
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-10 inline-flex w-full items-center justify-center rounded-full bg-primary px-12 py-5 text-[0.78rem] uppercase tracking-[0.22em] text-primary-foreground transition-opacity duration-300 hover:opacity-90 sm:w-auto"
-                >
-                  Agendar pelo WhatsApp
-                </a>
-              ) : (
-                <p className="mx-auto mt-10 max-w-md rounded-full border border-dashed border-border px-8 py-5 text-[0.75rem] uppercase tracking-[0.18em] text-muted-foreground">
-                  WhatsApp a configurar em src/config/site.ts
-                </p>
-              )}
-
-              <div className="mt-16 grid gap-8 border-t border-border pt-10 text-sm text-muted-foreground sm:grid-cols-3">
-                <div>
-                  <h3 className="eyebrow font-sans">Telefone</h3>
-                  <p className="mt-3">
-                    {siteConfig.phoneDisplay ? (
-                      <a href={siteConfig.phoneHref} className="hover:text-foreground">
-                        {siteConfig.phoneDisplay}
-                      </a>
-                    ) : (
-                      "A configurar"
-                    )}
-                  </p>
-                </div>
-                <div>
-                  <h3 className="eyebrow font-sans">Endereço</h3>
-                  <p className="mt-3">
-                    {siteConfig.address.street}
-                    <br />
-                    {siteConfig.address.district} — {siteConfig.address.city}
-                  </p>
-                </div>
-                <div>
-                  <h3 className="eyebrow font-sans">Atendimento</h3>
-                  <p className="mt-3">
-                    {siteConfig.hours.days}
-                    <br />
-                    {siteConfig.hours.time}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-      <WhatsAppButton />
-    </div>
-  );
-}
+[299 lines collapsed]
