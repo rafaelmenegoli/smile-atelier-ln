@@ -392,16 +392,20 @@ export function DentalArch({ className }: { className?: string | undefined }) {
                     style={{ pointerEvents: "none" }}
                   />
                   {isActive && (
-                    <text
-                      y={h / 2 + 14}
-                      textAnchor="middle"
-                      fill="#f3e6c4"
-                      fontSize={8}
-                      letterSpacing={1.4}
-                      style={{ fontFamily: "Jost, sans-serif" }}
-                    >
-                      {tooth.fdi}
-                    </text>
+                    <>
+                      <circle cy={h / 2 + 15} r={10} fill="#1a1512" opacity={0.75} />
+                      <text
+                        y={h / 2 + 19}
+                        textAnchor="middle"
+                        fill="#f3e6c4"
+                        fontSize={10}
+                        fontWeight={500}
+                        letterSpacing={1.2}
+                        style={{ fontFamily: "Jost, sans-serif" }}
+                      >
+                        {tooth.fdi}
+                      </text>
+                    </>
                   )}
                 </g>
               );
