@@ -273,9 +273,10 @@ function Home() {
                     <span className="section-index mr-3 align-middle">03</span>Diferenciais
                   </p>
                   <h2 className="font-serif text-[2.4rem] leading-[1.08] italic text-foreground sm:text-5xl lg:text-[3.6rem]">
-                    Onde a ciência encontra a{" "}
-                    <span className="block not-italic">arte do sorriso.</span>
+                    Onde a ciência encontra
+                    <span className="block not-italic">a arte do sorriso.</span>
                   </h2>
+
                 </div>
                 <div className="mt-8 h-px w-24 bg-gold/40" />
                 <p className="mt-8 max-w-md text-[0.95rem] leading-[1.9] text-muted-foreground">
