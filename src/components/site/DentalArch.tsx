@@ -335,8 +335,8 @@ export function DentalArch({ className }: { className?: string | undefined }) {
               const isActive = tooth.key === activeKey;
               const dimmed = Boolean(activeKey) && !isActive;
               const path = crownPath(tooth.shape, w, h);
-              const extrude = isActive ? 5.2 : 3.4;
-              const scale = isActive ? 1.08 : 1;
+              const extrude = isActive ? 6 : 3.4;
+              const scale = isActive ? 1.14 : 1;
 
               return (
                 <g
@@ -392,16 +392,20 @@ export function DentalArch({ className }: { className?: string | undefined }) {
                     style={{ pointerEvents: "none" }}
                   />
                   {isActive && (
-                    <text
-                      y={h / 2 + 14}
-                      textAnchor="middle"
-                      fill="#f3e6c4"
-                      fontSize={8}
-                      letterSpacing={1.4}
-                      style={{ fontFamily: "Jost, sans-serif" }}
-                    >
-                      {tooth.fdi}
-                    </text>
+                    <>
+                      <circle cy={h / 2 + 15} r={10} fill="#1a1512" opacity={0.75} />
+                      <text
+                        y={h / 2 + 19}
+                        textAnchor="middle"
+                        fill="#f3e6c4"
+                        fontSize={10}
+                        fontWeight={500}
+                        letterSpacing={1.2}
+                        style={{ fontFamily: "Jost, sans-serif" }}
+                      >
+                        {tooth.fdi}
+                      </text>
+                    </>
                   )}
                 </g>
               );
@@ -409,17 +413,24 @@ export function DentalArch({ className }: { className?: string | undefined }) {
           </svg>
         </div>
 
-        <div className="relative mt-3 flex min-h-[4.25rem] flex-col items-center justify-center px-4 text-center">
+        <div className="relative mt-4 flex min-h-[6.5rem] w-full max-w-md flex-col items-center justify-center rounded-2xl border border-gold/30 bg-gradient-to-b from-champagne/10 to-champagne/5 px-5 py-4 text-center shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-sm">
           {active ? (
             <>
-              <p className="text-[0.62rem] uppercase tracking-[0.28em] text-gold/90">FDI {active.fdi}</p>
-              <p className="mt-1 font-serif text-xl italic text-champagne sm:text-2xl">{active.name}</p>
-              <p className="mt-1 max-w-md text-[0.8rem] leading-snug text-champagne/70">{active.tip}</p>
+              <div className="flex items-center gap-2">
+                <span className="h-px w-6 bg-gold/60" />
+                <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-gold">FDI {active.fdi}</p>
+                <span className="h-px w-6 bg-gold/60" />
+              </div>
+              <p className="mt-2 font-serif text-2xl italic text-champagne sm:text-3xl">{active.name}</p>
+              <p className="mt-2 max-w-xs text-[0.9rem] leading-relaxed text-champagne/85">{active.tip}</p>
             </>
           ) : (
-            <p className="text-[0.72rem] uppercase tracking-[0.26em] text-champagne/55">
-              Explore cada dente — toque ou passe o mouse
-            </p>
+            <>
+              <p className="font-serif text-lg italic text-champagne/90">Cada dente tem a sua história</p>
+              <p className="mt-1 text-[0.75rem] uppercase tracking-[0.24em] text-champagne/55">
+                Toque ou passe o mouse para explorar
+              </p>
+            </>
           )}
         </div>
       </div>
