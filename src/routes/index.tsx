@@ -294,29 +294,27 @@ function Home() {
               </Reveal>
 
               {/* Right Column: Pillars */}
-              <ul className="mt-2 grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-2 lg:col-span-7 lg:mt-0">
+              <ul className="grid grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2 lg:col-span-7">
                 {differentials.map((d, i) => (
                   <Reveal
                     as="li"
                     key={d.title}
                     delay={i * 100}
-                    className={`group relative ${i % 2 === 0 ? "md:mt-12" : ""}`}
+                    className="group border-t border-border pt-7 transition-colors duration-500 hover:border-gold"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="absolute -top-8 -left-5 font-serif text-[5rem] font-light italic leading-none text-gold/10 transition-colors duration-500 group-hover:text-gold/20 sm:text-[6rem]"
-                    >
+                    <span className="block font-serif text-[1.6rem] italic leading-none text-gold/70 transition-colors duration-500 group-hover:text-gold">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="relative font-serif text-2xl tracking-tight text-foreground transition-colors duration-500 group-hover:text-gold">
+                    <h3 className="mt-4 font-serif text-2xl tracking-tight text-foreground transition-colors duration-500 group-hover:text-gold">
                       {d.title}
                     </h3>
-                    <p className="mt-4 border-l border-border pl-6 text-[0.9rem] leading-[1.9] text-muted-foreground">
+                    <p className="mt-3 text-[0.9rem] leading-[1.9] text-muted-foreground">
                       {d.text}
                     </p>
                   </Reveal>
                 ))}
               </ul>
+
             </div>
 
             <div className="mt-24 h-px w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
