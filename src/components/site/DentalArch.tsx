@@ -61,17 +61,17 @@ const ARCH: (ToothDef & { key: string })[] = [
 ];
 
 const SHAPE_SIZE: Record<ToothShape, { w: number; h: number }> = {
-  incisor: { w: 20, h: 34 },
-  canine: { w: 22, h: 38 },
-  premolar: { w: 25, h: 33 },
-  molar: { w: 31, h: 30 },
+  incisor: { w: 22, h: 32 },
+  canine: { w: 23, h: 35 },
+  premolar: { w: 26, h: 30 },
+  molar: { w: 32, h: 30 },
 };
 
 const CENTER_X = 220;
-const TOP_Y = 44;
-const RADIUS_X = 172;
-const RADIUS_Y = 152;
-const THETA_MAX = 99; // graus, abertura total do arco
+const TOP_Y = 56;
+const RADIUS_X = 168;
+const RADIUS_Y = 128;
+const THETA_MAX = 82; // graus, abertura total do arco
 
 function toothPlacement(index: number, total: number) {
   const t = (index - (total - 1) / 2) / ((total - 1) / 2); // -1..1
@@ -90,35 +90,22 @@ export function DentalArch({ className }: { className?: string | undefined }) {
     <div className={className}>
       <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-sm bg-gradient-to-b from-champagne/70 via-sand to-nude/40 px-4 py-8 sm:px-10">
         <svg
-          viewBox="0 0 440 280"
+          viewBox="0 0 440 240"
           className="w-full max-w-xl"
           role="img"
           aria-label="Ilustração interativa de uma arcada dentária superior. Passe o mouse ou toque em cada dente para ver seu nome e função."
         >
-          <path
-            d="M 220 58 C 220 130, 220 170, 220 216"
-            stroke="var(--color-border)"
-            strokeWidth={1}
-            fill="none"
-            strokeDasharray="1 5"
-            strokeLinecap="round"
-            opacity={0.8}
-          />
-
           {ARCH.map((tooth, i) => {
             const { x, y, rotate } = toothPlacement(i, ARCH.length);
             const { w, h } = SHAPE_SIZE[tooth.shape];
             const isActive = tooth.key === activeKey;
+            const scale = isActive ? 1.12 : 1;
 
             return (
               <g
                 key={tooth.key}
-                transform={`translate(${x} ${y}) rotate(${rotate}) scale(${isActive ? 1.16 : 1})`}
-                style={{
-                  transformOrigin: "center",
-                  transition: "transform 320ms cubic-bezier(0.22,1,0.36,1)",
-                  cursor: "pointer",
-                }}
+                transform={`translate(${x} ${y}) rotate(${rotate}) scale(${scale})`}
+                style={{ cursor: "pointer" }}
                 onMouseEnter={() => setActiveKey(tooth.key)}
                 onMouseLeave={() => setActiveKey((cur) => (cur === tooth.key ? null : cur))}
                 onFocus={() => setActiveKey(tooth.key)}
@@ -133,21 +120,21 @@ export function DentalArch({ className }: { className?: string | undefined }) {
                   y={-h / 2}
                   width={w}
                   height={h}
-                  rx={w / 2.4}
-                  fill={isActive ? "var(--color-gold)" : "var(--color-champagne)"}
-                  stroke={isActive ? "var(--color-gold)" : "var(--color-border)"}
-                  strokeWidth={isActive ? 1.5 : 1}
-                  style={{ transition: "fill 280ms ease, stroke 280ms ease" }}
+                  rx={tooth.shape === "molar" ? w / 4 : w / 2.6}
+                  fill={isActive ? "var(--color-gold)" : "#fffdf8"}
+                  stroke={isActive ? "var(--color-gold)" : "var(--color-nude)"}
+                  strokeWidth={1.25}
+                  style={{ transition: "fill 260ms ease, stroke 260ms ease" }}
                 />
-                {(tooth.shape === "molar" || tooth.shape === "premolar") && (
+                {tooth.shape !== "incisor" && (
                   <line
                     x1={0}
-                    y1={-h / 5}
+                    y1={-h / 4}
                     x2={0}
-                    y2={h / 5}
-                    stroke="var(--color-border)"
-                    strokeWidth={0.75}
-                    opacity={isActive ? 0.25 : 0.55}
+                    y2={h / 4}
+                    stroke="var(--color-nude)"
+                    strokeWidth={0.9}
+                    opacity={isActive ? 0.3 : 0.7}
                   />
                 )}
               </g>
@@ -155,7 +142,7 @@ export function DentalArch({ className }: { className?: string | undefined }) {
           })}
         </svg>
 
-        <div className="mt-6 flex h-[3.5rem] flex-col items-center justify-center text-center">
+        <div className="mt-4 flex h-[3.5rem] flex-col items-center justify-center px-4 text-center">
           {active ? (
             <>
               <p className="font-serif text-lg italic text-gold">{active.name}</p>
@@ -169,4 +156,3 @@ export function DentalArch({ className }: { className?: string | undefined }) {
     </div>
   );
 }
-
