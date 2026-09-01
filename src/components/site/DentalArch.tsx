@@ -335,8 +335,8 @@ export function DentalArch({ className }: { className?: string | undefined }) {
               const isActive = tooth.key === activeKey;
               const dimmed = Boolean(activeKey) && !isActive;
               const path = crownPath(tooth.shape, w, h);
-              const extrude = isActive ? 5.2 : 3.4;
-              const scale = isActive ? 1.08 : 1;
+              const extrude = isActive ? 6 : 3.4;
+              const scale = isActive ? 1.14 : 1;
 
               return (
                 <g
