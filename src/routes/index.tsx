@@ -213,7 +213,7 @@ function Home() {
               </h2>
             </Reveal>
             <Reveal delay={120}>
-              <DentalArch className="mx-auto mt-4 h-[22rem] w-full max-w-3xl sm:h-[30rem]" />
+              <DentalArch className="mx-auto mt-4 w-full max-w-3xl" />
             </Reveal>
             <Reveal delay={200} className="mx-auto max-w-lg text-center">
               <p className="text-[0.9rem] leading-[1.9] text-muted-foreground">
