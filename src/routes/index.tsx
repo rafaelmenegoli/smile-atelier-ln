@@ -207,41 +207,7 @@ function Home() {
         </section>
 
         {/* TRATAMENTOS */}
-        <section id="tratamentos" className="py-20 md:py-32">
-          <div className="mx-auto max-w-7xl px-5 md:px-10">
-            <Reveal className="max-w-2xl">
-              <p className="eyebrow"><span className="section-index mr-3 align-middle">02</span>Tratamentos</p>
-              <h2 className="mt-6 font-serif text-[2.1rem] leading-[1.15] sm:text-5xl">
-                Nossos tratamentos
-              </h2>
-              <p className="mt-6 text-[0.95rem] leading-[1.9] text-muted-foreground">
-                Um cuidado completo, conduzido com critério clínico e planejamento individual.
-              </p>
-            </Reveal>
-
-            <ul className="mt-16 grid gap-x-14 gap-y-14 sm:grid-cols-2">
-              {treatments.map((t, i) => (
-                <Reveal
-                  as="li"
-                  key={t.title}
-                  delay={i * 90}
-                  className="group relative border-t border-border pt-8 transition-colors duration-500 hover:border-gold"
-                >
-                  <span className="absolute -top-px left-0 h-px w-0 bg-gold transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
-                  <span className="block font-serif text-[2.2rem] italic leading-none text-gold/70 transition-all duration-500 group-hover:text-gold">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-6 font-serif text-2xl transition-colors duration-500 group-hover:text-gold">
-                    {t.title}
-                  </h3>
-                  <p className="mt-3 max-w-md text-[0.9rem] leading-[1.9] text-muted-foreground">
-                    {t.text}
-                  </p>
-                </Reveal>
-              ))}
-            </ul>
-          </div>
-        </section>
+        <Treatments />
 
         {/* DIFERENCIAIS */}
         <section className="relative overflow-hidden bg-sand/60 py-20 md:py-32">
