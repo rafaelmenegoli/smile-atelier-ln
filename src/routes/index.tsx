@@ -14,6 +14,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { Gallery } from "@/components/site/Gallery";
 import { DentalArch } from "@/components/site/DentalArch";
 import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
+import { Treatments } from "@/components/site/Treatments";
 import { siteConfig, whatsappLink } from "@/config/site";
 
 const title = "LN Odontologia Especializada | São José do Rio Preto";
