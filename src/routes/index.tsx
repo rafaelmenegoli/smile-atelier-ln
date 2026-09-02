@@ -56,25 +56,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const treatments = [
-  {
-    title: "Clínica Geral",
-    text: "Acompanhamento contínuo, diagnóstico cuidadoso e procedimentos essenciais para manter a saúde bucal em dia.",
-  },
-  {
-    title: "Estética Dental",
-    text: "Procedimentos delicados que valorizam a harmonia do sorriso, respeitando as características de cada paciente.",
-  },
-  {
-    title: "Reabilitação Oral",
-    text: "Devolução de função e conforto por meio de planejamento individualizado e execução criteriosa.",
-  },
-  {
-    title: "Prevenção e Saúde Bucal",
-    text: "Orientação, profilaxia e acompanhamento preventivo para preservar resultados a longo prazo.",
-  },
-];
-
 const differentials = [
   {
     title: "Corpo clínico especializado",
