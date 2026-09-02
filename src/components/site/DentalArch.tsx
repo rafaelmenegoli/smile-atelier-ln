@@ -252,7 +252,7 @@ export function DentalArch({ className }: { className?: string | undefined }) {
     <div className={className}>
       <div
         ref={stageRef}
-        className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-[1.5rem] border border-gold/20 bg-gradient-to-b from-[#1c1612] via-[#2a221c] to-[#3a2f26] px-3 py-6 sm:rounded-[2rem] sm:px-8 sm:py-8"
+        className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-[1.5rem] border border-gold/20 bg-gradient-to-b from-[#1c1612] via-[#2a221c] to-[#3a2f26] px-3 py-6 sm:rounded-[2rem] sm:px-8 sm:py-8"
         onPointerMove={(e) => updatePointer(e.clientX, e.clientY)}
         onPointerLeave={() => {
           setTilt({ rx: 10, ry: 0 });
@@ -263,7 +263,7 @@ export function DentalArch({ className }: { className?: string | undefined }) {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 opacity-40"
           style={{
-            background: `radial-gradient(ellipse 70% 55% at ${((light.x / 640) * 100).toFixed(1)}% ${((light.y / 400) * 100).toFixed(1)}%, rgba(212,175,110,0.22), transparent 55%)`,
+            background: `radial-gradient(ellipse 70% 55% at ${((light.x / 640) * 100).toFixed(1)}% ${((light.y / 340) * 100).toFixed(1)}%, rgba(212,175,110,0.22), transparent 55%)`,
           }}
         />
 
@@ -280,7 +280,7 @@ export function DentalArch({ className }: { className?: string | undefined }) {
         >
           <svg
             ref={svgRef}
-            viewBox="0 0 640 400"
+            viewBox="0 0 640 340"
             className="relative w-full drop-shadow-[0_28px_40px_rgba(0,0,0,0.45)]"
             role="img"
             aria-label="Ilustração interativa da arcada dentária superior. Selecione um dente para ver o nome e a função."
@@ -311,7 +311,7 @@ export function DentalArch({ className }: { className?: string | undefined }) {
               </filter>
             </defs>
 
-            <ellipse cx={CENTER_X} cy={248} rx={198} ry={118} fill={`url(#${palateId})`} />
+            <ellipse cx={CENTER_X} cy={232} rx={196} ry={98} fill={`url(#${palateId})`} />
             <path
               d={goldArc}
               fill="none"
