@@ -306,8 +306,8 @@ export function DentalArch({ className }: { className?: string | undefined }) {
                 <stop offset="45%" stopColor="#e8c97a" />
                 <stop offset="100%" stopColor="#c4a056" />
               </linearGradient>
-              <filter id={liftId} x="-40%" y="-40%" width="180%" height="180%">
-                <feDropShadow dx="0" dy="6" stdDeviation="4" floodColor="#d4af6e" floodOpacity="0.45" />
+              <filter id={liftId} x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="0" dy="8" stdDeviation="6" floodColor="#d4af6e" floodOpacity="0.6" />
               </filter>
             </defs>
 
@@ -335,15 +335,15 @@ export function DentalArch({ className }: { className?: string | undefined }) {
               const isActive = tooth.key === activeKey;
               const dimmed = Boolean(activeKey) && !isActive;
               const path = crownPath(tooth.shape, w, h);
-              const extrude = isActive ? 6 : 3.4;
-              const scale = isActive ? 1.14 : 1;
+              const extrude = isActive ? 7 : 3.4;
+              const scale = isActive ? 1.18 : 1;
 
               return (
                 <g
                   key={tooth.key}
                   data-tooth={tooth.key}
                   transform={`translate(${x} ${y}) rotate(${rotate}) scale(${scale})`}
-                  opacity={dimmed ? 0.38 : 1}
+                  opacity={dimmed ? 0.45 : 1}
                   style={{
                     cursor: "pointer",
                     outline: "none",
@@ -393,12 +393,12 @@ export function DentalArch({ className }: { className?: string | undefined }) {
                   />
                   {isActive && (
                     <>
-                      <circle cy={h / 2 + 15} r={10} fill="#1a1512" opacity={0.75} />
+                      <circle cy={h / 2 + 16} r={12} fill="#1a1512" opacity={0.85} />
                       <text
-                        y={h / 2 + 19}
+                        y={h / 2 + 20}
                         textAnchor="middle"
-                        fill="#f3e6c4"
-                        fontSize={10}
+                        fill="#fff8e8"
+                        fontSize={12}
                         fontWeight={500}
                         letterSpacing={1.2}
                         style={{ fontFamily: "Jost, sans-serif" }}
@@ -413,21 +413,22 @@ export function DentalArch({ className }: { className?: string | undefined }) {
           </svg>
         </div>
 
-        <div className="relative mt-4 flex min-h-[6.5rem] w-full max-w-md flex-col items-center justify-center rounded-2xl border border-gold/30 bg-gradient-to-b from-champagne/10 to-champagne/5 px-5 py-4 text-center shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)] backdrop-blur-sm">
+        <div className="relative mt-5 flex min-h-[7.5rem] w-full max-w-xl flex-col items-center justify-center rounded-2xl border border-gold/50 bg-[#1c1612]/95 px-6 py-5 text-center shadow-[0_12px_40px_-14px_rgba(0,0,0,0.6)] backdrop-blur-sm">
+          <span className="absolute top-0 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
           {active ? (
             <>
               <div className="flex items-center gap-2">
-                <span className="h-px w-6 bg-gold/60" />
-                <p className="text-[0.7rem] font-medium uppercase tracking-[0.3em] text-gold">FDI {active.fdi}</p>
-                <span className="h-px w-6 bg-gold/60" />
+                <span className="h-px w-6 bg-gold/70" />
+                <p className="text-[0.75rem] font-medium uppercase tracking-[0.3em] text-gold">FDI {active.fdi}</p>
+                <span className="h-px w-6 bg-gold/70" />
               </div>
-              <p className="mt-2 font-serif text-2xl italic text-champagne sm:text-3xl">{active.name}</p>
-              <p className="mt-2 max-w-xs text-[0.9rem] leading-relaxed text-champagne/85">{active.tip}</p>
+              <p className="mt-2 font-serif text-3xl italic text-[#fff8e8] sm:text-4xl">{active.name}</p>
+              <p className="mt-2 max-w-sm text-sm leading-relaxed text-[#fff8e8]/90 sm:text-base">{active.tip}</p>
             </>
           ) : (
             <>
-              <p className="font-serif text-lg italic text-champagne/90">Cada dente tem a sua história</p>
-              <p className="mt-1 text-[0.75rem] uppercase tracking-[0.24em] text-champagne/55">
+              <p className="font-serif text-xl italic text-[#fff8e8]/95 sm:text-2xl">Cada dente tem a sua história</p>
+              <p className="mt-1 text-[0.8rem] uppercase tracking-[0.24em] text-gold/80">
                 Toque ou passe o mouse para explorar
               </p>
             </>
